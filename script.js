@@ -17,4 +17,3 @@ const d = prompt('На сколько оцените его', '');
 personalMoovieDB.moovies[a] = b;
 personalMoovieDB.moovies[c] = d;
 console.log(personalMoovieDB);
-
