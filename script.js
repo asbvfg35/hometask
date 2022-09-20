@@ -1,7 +1,14 @@
 "use strict";
 
-const numberOfFilms = +prompt('Сколько фильмов вы уже посмотрели', '');
+let numberOfFilms;
+function start() {
+  numberOfFilms = +prompt('Сколько фильмов вы уже посмотрели?', '');
+  while (numberOfFilms == "" || numberOfFilms == null || isNaN(numberOfFilms)) {
+    numberOfFilms = +prompt('Сколько фильмов вы уже посмотрели?', '');
+  }
+}
 
+start();
 
 const personalMoovieDB = {
   count: numberOfFilms,
@@ -9,111 +16,45 @@ const personalMoovieDB = {
   actors: {},
   genres: [],
   privat: false,
-
 };
 
-<<<<<<< HEAD
-for (let i = 0; i < 2; i++) {
-  const a = prompt('Один из последних просмотренных фильмов', '');
-  const b = prompt('На сколько оцените его', '');
+function rememberMyFilms() {
+  for (let i = 0; i < 2; i++) {
+    const a = prompt('Один из последних просмотренных фильмов', '');
+    const b = prompt('На сколько оцените его', '');
 
-  if (a != null && b != null && a.length < 50 && a != '' && b != '') {
+    if (a != null && b != null && a.length < 50 && a != '' && b != '') {
 
-    personalMoovieDB.moovies[a] = b;
-    console.log('done');
-  } else {
-    console.log('Error');
-    i--;
+      personalMoovieDB.moovies[a] = b;
+
+    } else {
+
+      i--;
+    }
   }
 }
 
-console.log(personalMoovieDB);
+rememberMyFilms();
 
-if (personalMoovieDB.count < 10) {
-  console.log("Просмотрено довольно мало фильмов");
-} else if (personalMoovieDB.count <= 30) {
-  console.log("Вы классический зритель");
-} else if (personalMoovieDB.count > 30) {
-  console.log(" Вы - киноман");
-} else console.log("Произошла ошибка");
+function detectPersonalLevel() {
+  if (personalMoovieDB.count < 10) {
+    console.log("Просмотрено довольно мало фильмов");
+  } else if (personalMoovieDB.count <= 30) {
+    console.log("Вы классический зритель");
+  } else if (personalMoovieDB.count > 30) {
+    console.log(" Вы - киноман");
+  } else console.log("Произошла ошибка");
+}
 
-// let i = 0;
-=======
-// for (let i = 0; i < 2; i++) {
-//   const a = prompt('Один из последних просмотренных фильмов', '');
-//   const b = prompt('На сколько оцените его', '');
+detectPersonalLevel();
 
-//   if (a != null && b != null && a.length < 50 && a != '' && b != '') {
+function showMyDB(hiden) {
+  if (!hiden) console.log(personalMoovieDB);
+}
 
-//     personalMoovieDB.moovies[a] = b;
-//     console.log('done');
-//   } else {
-//     console.log('Error');
-//     i--;
-//   }
-// }
-
-// console.log(personalMoovieDB);
-
-// if (personalMoovieDB.count < 10) {
-//   console.log("Просмотрено довольно мало фильмов");
-// } else if (personalMoovieDB.count <= 30) {
-//   console.log("Вы классический зритель");
-// } else if (personalMoovieDB.count > 30) {
-//   console.log(" Вы - киноман");
-// } else console.log("Произошла ошибка");
-
-let i = 0;
->>>>>>> e248e0f3594cec9dd714fddc4c47460bfe47b25c
-// while (i < 2) {
-//   const a = prompt('Один из последних просмотренных фильмов', '');
-//   const b = prompt('На сколько оцените его', '');
-
-//   if (a != null && b != null && a.length < 50 && a != '' && b != '') {
-
-//     personalMoovieDB.moovies[a] = b;
-//     console.log('done');
-//   } else {
-//     console.log('Error');
-//     i--;
-//   }
-//   i++;
-// }
-
-
-<<<<<<< HEAD
-// do {
-//   const a = prompt('Один из последних просмотренных фильмов', '');
-//   const b = prompt('На сколько оцените его', '');
-
-//   if (a != null && b != null && a.length < 50 && a != '' && b != '') {
-
-//     personalMoovieDB.moovies[a] = b;
-//     console.log('done');
-//   } else {
-//     console.log('Error');
-//     i--;
-//   }
-//   i++;
-// } while (i < 2)
-
-// console.log(personalMoovieDB);
-
-=======
-do {
-  const a = prompt('Один из последних просмотренных фильмов', '');
-  const b = prompt('На сколько оцените его', '');
-
-  if (a != null && b != null && a.length < 50 && a != '' && b != '') {
-
-    personalMoovieDB.moovies[a] = b;
-    console.log('done');
-  } else {
-    console.log('Error');
-    i--;
+function writeYourGenres() {
+  for (let i = 1; i <= 3; i++) {
+    personalMoovieDB.genres[i - 1] = prompt(`Ваш любимый жанр под номером ${i}`)
   }
-  i++;
-} while(i < 2)
+}
 
-console.log(personalMoovieDB);
->>>>>>> e248e0f3594cec9dd714fddc4c47460bfe47b25c
