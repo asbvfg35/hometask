@@ -70,3 +70,4 @@ personalMoovieDB.toggleVisibleMyDB = function () {
   }
 };
 
+
